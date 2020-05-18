@@ -5,6 +5,8 @@ import com.demo.data.RandomEmail;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.open;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,8 +33,7 @@ public class SavingJobsTest
         jobResultsActions.saveJobNumber(2);
         jobResultsActions.saveLastJob();
 
-        viewSavedJobs.viewMySavedJobs();
-        assertThat(viewSavedJobs.savedJobTitles()).hasSize(2);
-        assertThat(viewSavedJobs.savedJobTitles()).containsAll(jobResultsActions.savedJobs());
+        List<String> savedJobs = viewSavedJobs.viewMySavedJobs();
+        assertThat(savedJobs).hasSize(2).containsAll(jobResultsActions.savedJobs());
     }
 }

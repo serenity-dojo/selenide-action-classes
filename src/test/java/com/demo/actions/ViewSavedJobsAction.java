@@ -14,14 +14,12 @@ public class ViewSavedJobsAction {
 
     private final String SAVED_JOB_TITLE = ".list-item-heading";
 
-    public void viewMySavedJobs() {
+    public List<String> viewMySavedJobs() {
         actions().moveToElement($(By.partialLinkText("My Job Search"))).perform();
         $(By.partialLinkText("Saved Jobs")).click();
         waitForSpinner.toDissapear();
         $$(SAVED_JOB_TITLE).shouldHave(size(2));
-    }
 
-    public List<String> savedJobTitles() {
         return $$(SAVED_JOB_TITLE).texts();
     }
 }
