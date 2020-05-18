@@ -1,11 +1,10 @@
 package com.demo.actions;
 
-import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ViewSavedJobsAction {
@@ -19,6 +18,6 @@ public class ViewSavedJobsAction {
         $(By.partialLinkText("Saved Jobs")).click();
         waitForSpinner.toDissapear();
 
-        return $$(SAVED_JOB_TITLE).shouldHave(size(2)).texts();
+        return $$(SAVED_JOB_TITLE).shouldHave(sizeGreaterThan(1)).texts();
     }
 }
