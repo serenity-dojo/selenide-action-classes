@@ -18,8 +18,7 @@ public class ViewSavedJobsAction {
         actions().moveToElement($(By.partialLinkText("My Job Search"))).perform();
         $(By.partialLinkText("Saved Jobs")).click();
         waitForSpinner.toDissapear();
-        $$(SAVED_JOB_TITLE).shouldHave(size(2));
 
-        return $$(SAVED_JOB_TITLE).texts();
+        return $$(SAVED_JOB_TITLE).shouldHave(size(2)).texts();
     }
 }

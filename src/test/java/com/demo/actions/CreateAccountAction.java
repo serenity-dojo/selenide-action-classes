@@ -6,6 +6,7 @@ import com.demo.ui.Dropdown;
 import com.demo.ui.InputField;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CreateAccountAction {
@@ -32,8 +33,7 @@ public class CreateAccountAction {
         $(Dropdown.withLabel("Job Corps Center")).selectOption(1);
         $(TERMS_AND_CONDITIONS).click();
 
-        $(CREATE_AN_ACCOUNT_BUTTON).shouldBe(Condition.enabled);
-        $(CREATE_AN_ACCOUNT_BUTTON).click();
+        $(CREATE_AN_ACCOUNT_BUTTON).shouldBe(enabled).click();
 
         waitForSpinner.toDissapear();
     }

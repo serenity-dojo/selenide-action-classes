@@ -1,5 +1,6 @@
 package com.demo;
 
+import com.codeborne.selenide.Configuration;
 import com.demo.actions.*;
 import com.demo.data.RandomEmail;
 import org.junit.Before;
@@ -21,8 +22,12 @@ public class SavingJobsTest
 
     @Before
     public void openTheApplication() {
+
+        Configuration.timeout = 10000;
+
         open(HomePage.URL);
         waitForSpinner.toDissapear();
+
     }
 
     @Test

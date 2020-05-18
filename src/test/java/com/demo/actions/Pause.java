@@ -1,12 +1,11 @@
 package com.demo.actions;
 
 public class Pause {
-    public static void  forMilliseconds(long duration) {
+    public static void forMilliseconds(long delay) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(delay);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 }
