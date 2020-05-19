@@ -18,6 +18,6 @@ public class ViewSavedJobsAction {
         $(By.partialLinkText("Saved Jobs")).click();
         waitForSpinner.toDissapear();
 
-        return $$(SAVED_JOB_TITLE).shouldHave(sizeGreaterThan(1)).texts();
+        return $$(SAVED_JOB_TITLE).shouldHave(sizeGreaterThan(0)).texts();
     }
 }

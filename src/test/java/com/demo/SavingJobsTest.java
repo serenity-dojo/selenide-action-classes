@@ -36,9 +36,11 @@ public class SavingJobsTest
         createAccount.withEmailAndPassword(RandomEmail.address(),"Secret123!");
         searchForJobs.forPopularCompany("Philips Jobs");
         jobResultsActions.saveJobNumber(2);
+        jobResultsActions.saveJobNumber(3);
+        jobResultsActions.saveJobNumber(4);
         jobResultsActions.saveLastJob();
 
         List<String> savedJobs = viewSavedJobs.viewMySavedJobs();
-        assertThat(savedJobs).hasSize(2).containsAll(jobResultsActions.savedJobs());
+        assertThat(savedJobs).hasSize(4);
     }
 }
